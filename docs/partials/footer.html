@@ -1,0 +1,82 @@
+<!-- Willbridge shared footer partial (includes back-to-top and the two
+     script tags). Paste verbatim at the end of every page with chrome. -->
+<footer class="bg-primary-900 text-ink-300 pt-16 pb-8 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+      <div class="lg:col-span-2">
+        <a href="index.html" class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center">
+            <i class="ri-quill-pen-line text-white text-xl"></i>
+          </span>
+          <span class="font-serif text-xl font-bold text-white">Will<span class="text-sand-400">bridge</span></span>
+        </a>
+        <p class="text-sm leading-relaxed text-ink-400 max-w-sm">
+          Wills, trusts, succession certificates and probate support — handled with patience,
+          discretion and plain language, so your family is never left guessing.
+        </p>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Willbridge on Facebook" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-sand-500 flex items-center justify-center transition"><i class="ri-facebook-fill"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Willbridge on X" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-sand-500 flex items-center justify-center transition"><i class="ri-twitter-x-fill"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Willbridge on LinkedIn" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-sand-500 flex items-center justify-center transition"><i class="ri-linkedin-fill"></i></a>
+          <a href="https://wa.me/918045550142" target="_blank" rel="noopener noreferrer" aria-label="Willbridge on WhatsApp" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-sand-500 flex items-center justify-center transition"><i class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-white font-semibold mb-4 text-base">Services</h2>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="services.html" class="hover:text-sand-400 transition">Will Drafting</a></li>
+          <li><a href="services.html" class="hover:text-sand-400 transition">Trust Creation</a></li>
+          <li><a href="services.html" class="hover:text-sand-400 transition">Succession Certificates</a></li>
+          <li><a href="service-details.html#probate-assistance" class="hover:text-sand-400 transition">Probate Assistance</a></li>
+          <li><a href="services.html" class="hover:text-sand-400 transition">All Services</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-white font-semibold mb-4 text-base">Company</h2>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="about.html" class="hover:text-sand-400 transition">About Us</a></li>
+          <li><a href="service-details.html#why-plan-early" class="hover:text-sand-400 transition">Why Plan Early</a></li>
+          <li><a href="service-details.html#faq" class="hover:text-sand-400 transition">FAQ</a></li>
+          <li><a href="pricing.html" class="hover:text-sand-400 transition">Pricing</a></li>
+          <li><a href="blog.html" class="hover:text-sand-400 transition">Journal</a></li>
+          <li><a href="login.html" class="hover:text-sand-400 transition">Client Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-white font-semibold mb-4 text-base">Stay informed</h2>
+        <p class="text-sm text-ink-400 mb-3">Occasional notes on wills, trusts and succession. No spam, ever.</p>
+        <form class="flex gap-2" data-validate data-success="#footer-newsletter-success" novalidate>
+          <label for="footer-newsletter-email" class="sr-only">Email address</label>
+          <input id="footer-newsletter-email" name="email" type="email" required placeholder="Email address" class="min-w-0 flex-1 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-sand-500">
+          <button type="submit" class="px-4 py-2.5 rounded-lg bg-sand-500 hover:bg-sand-600 text-white text-sm font-semibold shrink-0 transition">Join</button>
+        </form>
+        <p id="footer-newsletter-email-error" class="hidden mt-1.5 text-xs text-red-400">Please enter a valid email address.</p>
+        <p id="footer-newsletter-success" class="hidden mt-2 text-sm text-sand-400"><i class="ri-checkbox-circle-fill"></i> Thank you — you are on the list.</p>
+        <div class="flex items-start gap-2 mt-4 text-sm text-ink-400"><i class="ri-map-pin-2-line text-sand-500 mt-0.5"></i><span>27 Richmond Row, Bengaluru 560025</span></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-phone-line text-sand-500"></i><a href="tel:+918045550142" class="hover:text-sand-400">+91 80 4555 0142</a></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-mail-line text-sand-500"></i><a href="mailto:hello@willbridge.example" class="hover:text-sand-400">hello@willbridge.example</a></div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-ink-500">
+      <p>&copy; <span id="footer-year"></span> Willbridge Legacy Planning. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-5">
+        <a href="#" class="hover:text-sand-400">Privacy Policy</a>
+        <a href="#" class="hover:text-sand-400">Terms of Service</a>
+        <a href="#" class="hover:text-sand-400">Client Confidentiality</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" title="Back to top" aria-label="Back to top" class="fixed bottom-6 end-6 z-40 w-11 h-11 rounded-full bg-primary-600 text-white shadow-soft flex items-center justify-center opacity-0 invisible translate-y-4 transition-all">
+  <i class="ri-arrow-up-line text-xl"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

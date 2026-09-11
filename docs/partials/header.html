@@ -1,0 +1,91 @@
+<!-- Willbridge shared header partial.
+     Paste verbatim into every page that carries site chrome, then add
+     nav-active to the current page's link (desktop AND mobile). -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-paper/85 dark:bg-ink-950/85 backdrop-blur-md border-b border-ink-200/70 dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[78px] gap-4">
+
+      <!-- Brand -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Willbridge — home">
+        <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
+          <i class="ri-quill-pen-line text-white text-xl"></i>
+        </span>
+        <span class="font-serif text-xl font-bold tracking-tight text-primary-700">Will<span class="text-sand-500">bridge</span></span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav aria-label="Primary" class="hidden lg:flex items-center gap-1.5 xl:gap-2 font-medium text-sm">
+        <div class="relative group">
+          <button class="nav-link nav-active flex items-center gap-1.5 px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition" aria-haspopup="true" aria-expanded="false">
+            Home <i class="ri-arrow-down-s-line text-base transition"></i>
+          </button>
+          <div class="dropdown absolute start-0 top-full mt-1 w-72 rounded-xl bg-white dark:bg-primary-900 border border-ink-200 dark:border-white/10 shadow-xl p-2 opacity-0 invisible translate-y-2 group-[.open]:opacity-100 group-[.open]:visible group-[.open]:translate-y-0 transition-all">
+            <a href="index.html" class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-primary-50 dark:hover:bg-white/5 hover:text-primary-600">
+              <i class="ri-home-4-line text-lg mt-0.5 text-sand-500"></i>
+              <span><span class="block font-semibold">Home 1 — Legacy Practice</span><span class="block text-xs text-ink-400">Classic advisory landing page</span></span>
+            </a>
+            <a href="home-2.html" class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-primary-50 dark:hover:bg-white/5 hover:text-primary-600">
+              <i class="ri-macbook-line text-lg mt-0.5 text-sand-500"></i>
+              <span><span class="block font-semibold">Home 2 — Online Will Platform</span><span class="block text-xs text-ink-400">Digital, product-led landing page</span></span>
+            </a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">About</a>
+
+        <a href="services.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Services</a>
+
+        <a href="service-details.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Estate Guide</a>
+
+        <a href="blog.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Blog</a>
+        <a href="contact.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Contact</a>
+      </nav>
+
+      <!-- Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
+          <span class="dir-ltr text-[11px] font-bold tracking-wider uppercase">RTL</span>
+          <span class="dir-rtl text-[11px] font-bold tracking-wider uppercase">LTR</span>
+        </button>
+        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
+          <i class="ri-moon-line text-lg dark:hidden"></i>
+          <i class="ri-sun-line text-lg hidden dark:inline"></i>
+        </button>
+        <a href="contact.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 shadow-soft transition">
+          <i class="ri-calendar-check-line"></i><span class="hidden sm:inline">Book Consultation</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-lg text-primary-700 dark:text-ink-200 hover:bg-ink-100 dark:hover:bg-white/10">
+          <i class="ri-menu-3-line text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile navigation -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-ink-200 dark:border-white/10 bg-paper dark:bg-ink-950 max-h-[85vh] overflow-y-auto">
+    <nav aria-label="Mobile" class="px-4 py-3 space-y-1 text-sm font-medium">
+      <button data-mobile-toggle="mobile-home" aria-expanded="false" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg nav-active hover:bg-primary-50 dark:hover:bg-white/5">
+        Home <i class="ri-arrow-down-s-line text-base transition"></i>
+      </button>
+      <div id="mobile-home" class="hidden ps-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-ink-500 dark:text-ink-400 hover:bg-primary-50 dark:hover:bg-white/5">Home 1 — Legacy Practice</a>
+        <a href="home-2.html" class="block px-3 py-2 rounded-lg text-ink-500 dark:text-ink-400 hover:bg-primary-50 dark:hover:bg-white/5">Home 2 — Online Will Platform</a>
+      </div>
+
+      <a href="about.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">About</a>
+      <a href="services.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Services</a>
+
+      <a href="service-details.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Estate Guide</a>
+
+      <a href="blog.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Blog</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Contact</a>
+
+      <div class="pt-3 border-t border-ink-200 dark:border-white/10 mt-2 space-y-2">
+        <a href="contact.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-primary-600 text-white font-semibold"><i class="ri-calendar-check-line"></i> Book a Confidential Consultation</a>
+      </div>
+    </nav>
+  </div>
+</header>

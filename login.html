@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Client Login | Willbridge Legacy Planning</title>
+<meta name="description" content="Sign in to your secure Willbridge client area to review drafts, upload documents and message your adviser.">
+<meta name="theme-color" content="#2d5f56">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.willbridge.example/login.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Willbridge Legacy Planning">
+<meta property="og:title" content="Client Login | Willbridge Legacy Planning">
+<meta property="og:description" content="Sign in to your secure Willbridge client area to review drafts, upload documents and message your adviser.">
+<meta property="og:image" content="https://placehold.co/1200x630/2d5f56/ffffff?text=Client+Login">
+<meta property="og:url" content="https://www.willbridge.example/login.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Client Login | Willbridge Legacy Planning">
+<meta name="twitter:description" content="Sign in to your secure Willbridge client area to review drafts, upload documents and message your adviser.">
+<meta name="twitter:image" content="https://placehold.co/1200x630/2d5f56/ffffff?text=Client+Login">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232d5f56'/%3E%3Crect x='7' y='4.5' width='10' height='15' rx='1.6' fill='none' stroke='white' stroke-width='1.3'/%3E%3Cpath d='M9.5 8.5h5M9.5 11.5h5' stroke='%23c08a4b' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M9.5 15.6c1.2-1.2 2.4 1.2 3.6 0' stroke='white' stroke-width='1.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          serif: ['"Lora"', 'ui-serif', 'Georgia', 'Cambria', 'serif']
+        },
+        colors: {
+          primary: {
+            50: '#f1f7f5', 100: '#dcebe7', 200: '#bad8d1', 300: '#8dbcb2', 400: '#5c9a8e',
+            500: '#3d7d71', 600: '#2d5f56', 700: '#264c46', 800: '#203e39', 900: '#1c3331', 950: '#0d1c1a'
+          },
+          sand: {
+            50: '#fbf7f1', 100: '#f5ecdd', 200: '#ead6b8', 300: '#dcba8c', 400: '#cd9d61',
+            500: '#c08a4b', 600: '#a5713d', 700: '#855935', 800: '#6b4830', 900: '#583c2a', 950: '#2f1e15'
+          },
+          ink: {
+            50: '#f7f7f6', 100: '#eeeeec', 200: '#dcdcd8', 300: '#bcbcb6', 400: '#93938c',
+            500: '#74746d', 600: '#5c5c56', 700: '#4a4a46', 800: '#3d3d3a', 900: '#2a2a28', 950: '#161615'
+          },
+          paper: '#fbfaf8'
+        },
+        boxShadow: {
+          soft: '0 10px 40px -12px rgba(45,95,86,0.35)',
+          card: '0 2px 10px -2px rgba(22,22,21,0.08)',
+          glow: '0 20px 45px -20px rgba(192,138,75,0.45)'
+        },
+        borderRadius: { '2xl': '1.25rem', '3xl': '1.75rem' }
+      }
+    }
+  }
+</script>
+
+<script>
+  /* Pre-paint: apply the saved theme and text direction before first paint
+     so there is no flash of the wrong theme or the wrong side. */
+  (function () {
+    var theme = localStorage.getItem('wb-theme') || 'light';
+    var dir = localStorage.getItem('wb-dir') || 'ltr';
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.setAttribute('dir', dir);
+    document.documentElement.setAttribute('lang', dir === 'rtl' ? 'ar' : 'en');
+  })();
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-paper dark:bg-ink-950 text-ink-600 dark:text-ink-300 antialiased">
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<main id="main" class="min-h-screen grid lg:grid-cols-2 relative overflow-hidden">
+
+  <!-- ---------- Brand panel ---------- -->
+  <section class="relative hidden lg:flex flex-col justify-between overflow-hidden bg-primary-800 p-12 text-white" aria-label="About Willbridge">
+    <div class="hero-ambient-grid" aria-hidden="true"></div>
+    <div class="blob-bg" aria-hidden="true">
+      <span class="w-[32rem] h-[32rem] bg-primary-300/30 -top-24 -start-24"></span>
+      <span class="w-[26rem] h-[26rem] bg-sand-400/25 bottom-0 -end-16"></span>
+      <span class="w-[18rem] h-[18rem] bg-sand-200/20 top-1/2 start-1/3"></span>
+    </div>
+
+    <a href="index.html" class="relative z-10 flex items-center gap-3 w-fit" aria-label="Willbridge — home">
+      <span class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shadow-soft"><i class="ri-quill-pen-line text-xl"></i></span>
+      <span class="font-serif text-xl font-bold">Will<span class="text-sand-400">bridge</span></span>
+    </a>
+
+    <div class="relative z-10 max-w-md">
+      <div class="glass-dark rounded-2xl p-7 border border-white/15 shadow-card">
+        <blockquote class="quote-mark font-serif text-2xl leading-snug">
+          Everything in one place, and someone to ring when I could not make sense of it. That is all
+          I wanted, and nobody else offered it.
+        </blockquote>
+        <figcaption class="mt-6">
+          <span class="block text-sm font-semibold text-white">Reena Fernandes</span>
+          <span class="block text-xs text-primary-200">Probate client since 2024</span>
+        </figcaption>
+      </div>
+    </div>
+
+    <ul class="relative z-10 space-y-3 text-sm text-primary-100">
+      <li class="flex items-center gap-2.5"><i class="ri-shield-check-line text-sand-400"></i> Encrypted document storage</li>
+      <li class="flex items-center gap-2.5"><i class="ri-eye-off-line text-sand-400"></i> Access-logged, never shared</li>
+      <li class="flex items-center gap-2.5"><i class="ri-download-2-line text-sand-400"></i> Export everything at any time</li>
+    </ul>
+  </section>
+
+  <!-- ---------- Form panel ---------- -->
+  <section class="relative flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 overflow-hidden" aria-labelledby="login-h">
+    <div class="hero-ambient-grid" aria-hidden="true"></div>
+    <div class="blob-bg" aria-hidden="true">
+      <span class="w-[24rem] h-[24rem] bg-primary-400/15 dark:bg-primary-500/10 -top-20 -end-20"></span>
+      <span class="w-[20rem] h-[20rem] bg-sand-300/20 dark:bg-sand-400/10 -bottom-20 -start-10"></span>
+    </div>
+
+    <div class="w-full max-w-md mx-auto relative z-10">
+
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-ink-500 dark:text-ink-400 hover:text-primary-600 dark:hover:text-sand-300">
+          <i class="ri-arrow-left-line rtl-flip"></i> Back to the website
+        </a>
+        <div class="flex items-center gap-1.5">
+          <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
+            <span class="dir-ltr text-[11px] font-bold tracking-wider uppercase">RTL</span>
+            <span class="dir-rtl text-[11px] font-bold tracking-wider uppercase">LTR</span>
+          </button>
+          <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
+            <i class="ri-moon-line text-lg dark:hidden"></i><i class="ri-sun-line text-lg hidden dark:inline"></i>
+          </button>
+        </div>
+      </div>
+
+      <a href="index.html" class="lg:hidden mt-8 flex items-center gap-3 w-fit">
+        <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft"><i class="ri-quill-pen-line text-white text-xl"></i></span>
+        <span class="font-serif text-xl font-bold tracking-tight text-primary-700">Will<span class="text-sand-500">bridge</span></span>
+      </a>
+
+      <div class="mt-10 glass-card rounded-3xl p-7 sm:p-9 border border-ink-200/80 dark:border-white/10 shadow-card">
+        <h1 id="login-h" class="font-serif text-3xl font-bold text-primary-900 dark:text-white">Welcome back</h1>
+        <p class="mt-2.5 text-sm text-ink-500 dark:text-ink-400">Sign in to review drafts, upload documents and message your adviser.</p>
+
+        <form class="mt-8 space-y-5" data-validate data-success="#login-success" novalidate>
+          <div>
+            <label for="login-email" class="block text-sm font-medium text-primary-800 dark:text-white mb-1.5">Email address</label>
+            <input id="login-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="glass-input w-full px-4 py-3 rounded-xl text-sm">
+            <p id="login-email-error" class="hidden mt-1.5 text-xs text-red-500">Please enter a valid email address.</p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="login-password" class="block text-sm font-medium text-primary-800 dark:text-white">Password</label>
+              <a href="#" class="text-xs font-medium text-primary-600 dark:text-sand-300 hover:underline">Forgotten it?</a>
+            </div>
+            <div class="relative">
+              <input id="login-password" name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="••••••••" class="glass-input w-full px-4 py-3 pe-12 rounded-xl text-sm">
+              <button type="button" data-toggle-password="#login-password" aria-label="Show password" class="absolute end-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg text-ink-400 hover:text-primary-600 flex items-center justify-center"><i class="ri-eye-line"></i></button>
+            </div>
+            <p id="login-password-error" class="hidden mt-1.5 text-xs text-red-500">Your password must be at least eight characters.</p>
+          </div>
+
+          <div class="flex items-center justify-between text-sm">
+            <label class="inline-flex items-center gap-2.5 text-ink-500 dark:text-ink-400">
+              <input type="checkbox" name="remember" class="w-4 h-4 accent-primary-600"> Keep me signed in
+            </label>
+          </div>
+
+          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-soft transition">
+            <i class="ri-login-circle-line"></i> Sign in
+          </button>
+        </form>
+
+        <p id="login-success" class="hidden mt-6 rounded-xl bg-primary-50 dark:bg-white/5 border border-primary-200 dark:border-white/10 p-4 text-sm text-primary-800 dark:text-sand-300">
+          <i class="ri-checkbox-circle-fill"></i> Signed in — in a live installation you would land in your client area now. This template has no backend.
+        </p>
+
+        <div class="my-7 flex items-center gap-4 text-xs text-ink-400">
+          <span class="flex-1 h-px bg-ink-200 dark:bg-white/10"></span> or <span class="flex-1 h-px bg-ink-200 dark:bg-white/10"></span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <button type="button" class="glass-pill inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-ink-200/80 dark:border-white/10 text-sm font-medium hover:bg-ink-50 dark:hover:bg-white/5 transition shadow-xs"><i class="ri-google-fill text-lg"></i> Google</button>
+          <button type="button" class="glass-pill inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-ink-200/80 dark:border-white/10 text-sm font-medium hover:bg-ink-50 dark:hover:bg-white/5 transition shadow-xs"><i class="ri-microsoft-fill text-lg"></i> Microsoft</button>
+        </div>
+
+        <p class="mt-7 text-sm text-center text-ink-500 dark:text-ink-400">
+          No account yet? <a href="register.html" class="font-semibold text-primary-600 dark:text-sand-300 hover:underline">Create one</a>
+        </p>
+      </div>
+
+      <p class="mt-8 text-xs text-center text-ink-400">
+        <i class="ri-lock-2-line me-1"></i> Willbridge will never ask for your password by email or telephone.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
