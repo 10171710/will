@@ -84,7 +84,7 @@
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- ============================== HEADER ============================== -->
-<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-paper/85 dark:bg-ink-950/85 backdrop-blur-md border-b border-ink-200/70 dark:border-white/10">
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-primary-900/95 dark:bg-ink-950/95 backdrop-blur-md border-b border-white/10 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-[78px] gap-4">
 
@@ -93,51 +93,50 @@
         <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
           <i class="ri-quill-pen-line text-white text-xl"></i>
         </span>
-        <span class="font-serif text-xl font-bold tracking-tight text-primary-700">Will<span class="text-sand-500">bridge</span></span>
+        <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
       </a>
 
       <!-- Desktop navigation -->
       <nav aria-label="Primary" class="hidden lg:flex items-center gap-1.5 xl:gap-2 font-medium text-sm">
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1.5 px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition" aria-haspopup="true" aria-expanded="false">
+          <button class="nav-link flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition" aria-haspopup="true" aria-expanded="false">
             Home <i class="ri-arrow-down-s-line text-base transition"></i>
           </button>
-          <div class="dropdown absolute start-0 top-full mt-1 w-72 rounded-xl bg-white dark:bg-primary-900 border border-ink-200 dark:border-white/10 shadow-xl p-2 opacity-0 invisible translate-y-2 group-[.open]:opacity-100 group-[.open]:visible group-[.open]:translate-y-0 transition-all">
-            <a href="index.html" class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-primary-50 dark:hover:bg-white/5 hover:text-primary-600">
-              <i class="ri-home-4-line text-lg mt-0.5 text-sand-500"></i>
-              <span><span class="block font-semibold">Home 1 — Legacy Practice</span><span class="block text-xs text-ink-400">Classic advisory landing page</span></span>
+          <div class="dropdown absolute start-0 top-full mt-1 w-72 rounded-xl bg-primary-900 dark:bg-ink-950 border border-white/10 shadow-2xl p-2 opacity-0 invisible translate-y-2 group-[.open]:opacity-100 group-[.open]:visible group-[.open]:translate-y-0 transition-all">
+            <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm hover:bg-white/10 hover:text-white text-ink-200">
+              <span class="block font-semibold text-white">Home 1 — Legacy Practice</span>
+              <span class="block text-xs text-ink-400">Classic advisory landing page</span>
             </a>
-            <a href="home-2.html" class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-primary-50 dark:hover:bg-white/5 hover:text-primary-600">
-              <i class="ri-macbook-line text-lg mt-0.5 text-sand-500"></i>
-              <span><span class="block font-semibold">Home 2 — Online Will Platform</span><span class="block text-xs text-ink-400">Digital, product-led landing page</span></span>
+            <a href="home-2.html" class="block px-3 py-2.5 rounded-lg text-sm hover:bg-white/10 hover:text-white text-ink-200">
+              <span class="block font-semibold text-white">Home 2 — Online Will Platform</span>
+              <span class="block text-xs text-ink-400">Digital, product-led landing page</span>
             </a>
           </div>
         </div>
 
-        <a href="about.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">About</a>
+        <a href="about.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">About</a>
 
-        <a href="services.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Services</a>
+        <a href="services.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Services</a>
 
-        <a href="service-details.html" class="nav-link nav-active px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Estate Guide</a>
+        <a href="service-details.html" class="nav-link nav-active px-3.5 py-2 rounded-lg text-sand-300 hover:text-white hover:bg-white/10 transition">Estate Guide</a>
 
-        <a href="blog.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Blog</a>
-        <a href="contact.html" class="nav-link px-3.5 py-2 rounded-lg hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition">Contact</a>
+        <a href="blog.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Blog</a>
+        <a href="contact.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Contact</a>
       </nav>
 
       <!-- Utilities -->
       <div class="flex items-center gap-1.5 sm:gap-2">
-        <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
-          <span class="dir-ltr text-[11px] font-bold tracking-wider uppercase">RTL</span>
-          <span class="dir-rtl text-[11px] font-bold tracking-wider uppercase">LTR</span>
+        <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">
+          <i class="ri-arrow-left-right-line text-lg"></i>
         </button>
-        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
+        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">
           <i class="ri-moon-line text-lg dark:hidden"></i>
           <i class="ri-sun-line text-lg hidden dark:inline"></i>
         </button>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 shadow-soft transition">
+        <a href="contact.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-sand-500 hover:bg-sand-600 shadow-soft transition">
           <i class="ri-calendar-check-line"></i><span class="hidden sm:inline">Book Consultation</span>
         </a>
-        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-lg text-primary-700 dark:text-ink-200 hover:bg-ink-100 dark:hover:bg-white/10">
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-lg text-white hover:bg-white/10">
           <i class="ri-menu-3-line text-2xl"></i>
         </button>
       </div>
@@ -145,26 +144,26 @@
   </div>
 
   <!-- Mobile navigation -->
-  <div id="mobile-menu" class="lg:hidden hidden border-t border-ink-200 dark:border-white/10 bg-paper dark:bg-ink-950 max-h-[85vh] overflow-y-auto">
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-primary-900 dark:bg-ink-950 text-ink-200 max-h-[85vh] overflow-y-auto">
     <nav aria-label="Mobile" class="px-4 py-3 space-y-1 text-sm font-medium">
-      <button data-mobile-toggle="mobile-home" aria-expanded="false" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">
+      <button data-mobile-toggle="mobile-home" aria-expanded="false" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">
         Home <i class="ri-arrow-down-s-line text-base transition"></i>
       </button>
       <div id="mobile-home" class="hidden ps-4 space-y-1">
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-ink-500 dark:text-ink-400 hover:bg-primary-50 dark:hover:bg-white/5">Home 1 — Legacy Practice</a>
-        <a href="home-2.html" class="block px-3 py-2 rounded-lg text-ink-500 dark:text-ink-400 hover:bg-primary-50 dark:hover:bg-white/5">Home 2 — Online Will Platform</a>
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-ink-400 hover:text-white hover:bg-white/10">Home 1 — Legacy Practice</a>
+        <a href="home-2.html" class="block px-3 py-2 rounded-lg text-ink-400 hover:text-white hover:bg-white/10">Home 2 — Online Will Platform</a>
       </div>
 
-      <a href="about.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">About</a>
-      <a href="services.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Services</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">About</a>
+      <a href="services.html" class="block px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">Services</a>
 
-      <a href="service-details.html" class="block px-3 py-2.5 rounded-lg nav-active hover:bg-primary-50 dark:hover:bg-white/5">Estate Guide</a>
+      <a href="service-details.html" class="block px-3 py-2.5 rounded-lg text-sand-300 bg-white/10 font-semibold hover:text-white hover:bg-white/10">Estate Guide</a>
 
-      <a href="blog.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Blog</a>
-      <a href="contact.html" class="block px-3 py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-white/5">Contact</a>
+      <a href="blog.html" class="block px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">Blog</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">Contact</a>
 
-      <div class="pt-3 border-t border-ink-200 dark:border-white/10 mt-2 space-y-2">
-        <a href="contact.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-primary-600 text-white font-semibold"><i class="ri-calendar-check-line"></i> Book a Confidential Consultation</a>
+      <div class="pt-3 border-t border-white/10 mt-2 space-y-2">
+        <a href="contact.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-sand-500 hover:bg-sand-600 text-white font-semibold"><i class="ri-calendar-check-line"></i> Book a Confidential Consultation</a>
       </div>
     </nav>
   </div>
@@ -185,7 +184,7 @@
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7" data-aos="fade-up">
           <span class="glass-badge"><i class="ri-book-open-line text-sand-500"></i> Essential Planning &amp; Settlement Guide</span>
-          <h1 class="mt-4 font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] text-primary-900 dark:text-white">
+          <h1 class="mt-4 font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-tight sm:leading-[1.22] text-primary-900 dark:text-white">
             Wills, probate &amp; succession — the complete estate guide
           </h1>
           <hr class="rule-sand mt-6">
@@ -652,7 +651,7 @@
 
       <!-- Life Stages Grid (Streamlined & Minimal) -->
       <div class="mt-16" data-aos="fade-up">
-        <h3 class="font-serif text-2xl font-bold text-primary-800 dark:text-white">When is the Right Time to Plan?</h3>
+        <h3 class="font-serif text-2xl font-bold text-primary-800 dark:text-white">When is the Right Time to Plan?&lrm;</h3>
         <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">Key milestones where proactive estate planning makes all the difference:</p>
 
         <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -852,7 +851,7 @@
         <!-- 1. Probate Timeline -->
         <details data-filter-item data-category="probate" data-title="How long does probate take timeline court delay uncontested contested" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>Honestly, how long does probate take in India?</span>
+            <span>Honestly, how long does probate take in India?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -865,7 +864,7 @@
         <!-- 2. Is Probate Compulsory -->
         <details data-filter-item data-category="probate" data-title="Is probate compulsory mandatory presidency towns High Court jurisdiction" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>Is probate legally compulsory for every will?</span>
+            <span>Is probate legally compulsory for every will?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -877,7 +876,7 @@
         <!-- 3. Probate vs Succession Certificate -->
         <details data-filter-item data-category="probate" data-title="Difference between probate and succession certificate no will intestate debts securities" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>What is the difference between probate and a succession certificate?</span>
+            <span>What is the difference between probate and a succession certificate?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -889,7 +888,7 @@
         <!-- 4. Do I need a will if family knows wishes -->
         <details data-filter-item data-category="wills" data-title="Do I really need a will verbal wishes family agreement oral" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>Do I really need a will if my family already agrees on my wishes?</span>
+            <span>Do I really need a will if my family already agrees on my wishes?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -901,7 +900,7 @@
         <!-- 5. Can I write my own will -->
         <details data-filter-item data-category="wills" data-title="Can I write my own will handwritten holograph stamp paper lawyer" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>Can I simply write my own will by hand on plain paper?</span>
+            <span>Can I simply write my own will by hand on plain paper?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -913,7 +912,7 @@
         <!-- 6. Does a will need registration -->
         <details data-filter-item data-category="wills" data-title="Does a will have to be registered sub registrar mandatory optional" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>Does a will have to be registered at the sub-registrar?</span>
+            <span>Does a will have to be registered at the sub-registrar?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -924,7 +923,7 @@
         <!-- 7. Nominee vs Legal Heir -->
         <details data-filter-item data-category="wills" data-title="Nominee versus legal heir bank nomination ownership Supreme Court" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>My bank has a nominee named. Does the nominee become the owner?</span>
+            <span>My bank has a nominee named. Does the nominee become the owner?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -935,7 +934,7 @@
         <!-- 8. Private Trust vs Will -->
         <details data-filter-item data-category="trusts" data-title="What does a trust do that a will cannot family trust private trust" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>What does a private trust achieve that a will cannot?</span>
+            <span>What does a private trust achieve that a will cannot?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -946,7 +945,7 @@
         <!-- 9. Minor's Guardianship -->
         <details data-filter-item data-category="trusts" data-title="How to name guardians for young children custody testamentary guardian" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>How do I legally nominate guardians for my minor children?</span>
+            <span>How do I legally nominate guardians for my minor children?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -957,7 +956,7 @@
         <!-- 10. Fixed Fees & Consultation -->
         <details data-filter-item data-category="fees" data-title="How do you charge fees fixed price hourly billing quotation consultation free" class="faq-item rounded-2xl bg-white dark:bg-primary-900/40 border border-ink-200 dark:border-white/10 p-5 sm:p-6 shadow-card transition-all">
           <summary class="flex items-start justify-between gap-4 font-serif font-bold text-primary-900 dark:text-white text-base sm:text-lg text-start">
-            <span>How do you bill for will drafting, trusts, and probate?</span>
+            <span>How do you bill for will drafting, trusts, and probate?&lrm;</span>
             <i class="ri-add-line faq-caret text-xl text-sand-500 shrink-0 mt-0.5"></i>
           </summary>
           <p class="mt-4 text-sm leading-relaxed text-ink-500 dark:text-ink-400 text-start">
@@ -994,7 +993,7 @@
         </span>
         
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white max-w-2xl mx-auto leading-tight">
-          Ready to protect your family's future or settle an estate?
+          Ready to protect your family's future or settle an estate?&lrm;
         </h2>
         <p class="mt-5 text-ink-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
           Book a 45-minute confidential consultation with our estate planning solicitors.
@@ -1024,13 +1023,13 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
       <div class="lg:col-span-2">
-        <a href="index.html" class="flex items-center gap-3 mb-4">
-          <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center">
+        <a href="index.html" class="flex items-center gap-3 mb-4" aria-label="Willbridge — home">
+          <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
             <i class="ri-quill-pen-line text-white text-xl"></i>
           </span>
-          <span class="font-serif text-xl font-bold text-white">Will<span class="text-sand-400">bridge</span></span>
+          <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
         </a>
-        <p class="text-sm leading-relaxed text-ink-400 max-w-sm">
+        <p class="text-sm leading-relaxed text-ink-200 max-w-sm">
           Wills, trusts, succession certificates and probate support — handled with patience,
           discretion and plain language, so your family is never left guessing.
         </p>
@@ -1067,26 +1066,28 @@
 
       <div>
         <h2 class="text-white font-semibold mb-4 text-base">Stay informed</h2>
-        <p class="text-sm text-ink-400 mb-3">Occasional notes on wills, trusts and succession. No spam, ever.</p>
-        <form class="flex gap-2" data-validate data-success="#footer-newsletter-success" novalidate>
-          <label for="footer-newsletter-email" class="sr-only">Email address</label>
-          <input id="footer-newsletter-email" name="email" type="email" required placeholder="Email address" class="min-w-0 flex-1 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-sand-500">
+        <p class="text-sm text-ink-200 mb-3">Occasional notes on wills, trusts and succession. No spam, ever.</p>
+        <form class="flex items-start gap-2" data-validate data-success="#footer-newsletter-success" novalidate>
+          <div class="flex-1 min-w-0">
+            <label for="footer-newsletter-email" class="sr-only">Email address</label>
+            <input id="footer-newsletter-email" name="email" type="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="Email address" class="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-sand-500">
+            <p id="footer-newsletter-email-error" class="hidden mt-1.5 text-xs text-red-400 text-start">Please enter a valid email address.</p>
+          </div>
           <button type="submit" class="px-4 py-2.5 rounded-lg bg-sand-500 hover:bg-sand-600 text-white text-sm font-semibold shrink-0 transition">Join</button>
         </form>
-        <p id="footer-newsletter-email-error" class="hidden mt-1.5 text-xs text-red-400">Please enter a valid email address.</p>
         <p id="footer-newsletter-success" class="hidden mt-2 text-sm text-sand-400"><i class="ri-checkbox-circle-fill"></i> Thank you — you are on the list.</p>
-        <div class="flex items-start gap-2 mt-4 text-sm text-ink-400"><i class="ri-map-pin-2-line text-sand-500 mt-0.5"></i><span>27 Richmond Row, Bengaluru 560025</span></div>
-        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-phone-line text-sand-500"></i><a href="tel:+918045550142" class="hover:text-sand-400">+91 80 4555 0142</a></div>
-        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-mail-line text-sand-500"></i><a href="mailto:hello@willbridge.example" class="hover:text-sand-400">hello@willbridge.example</a></div>
+        <div class="flex items-start gap-2 mt-4 text-sm text-ink-200"><i class="ri-map-pin-2-line text-sand-500 mt-0.5"></i><span>27 Richmond Row, Bengaluru 560025</span></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-200"><i class="ri-phone-line text-sand-500"></i><a href="tel:+918045550142" class="hover:text-sand-400">+91 80 4555 0142</a></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-200"><i class="ri-mail-line text-sand-500"></i><a href="mailto:hello@willbridge.example" class="hover:text-sand-400">hello@willbridge.example</a></div>
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-ink-500">
-      <p>&copy; <span id="footer-year"></span> Willbridge Legacy Planning. All rights reserved.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-ink-300">
+      <p class="text-ink-300">&copy; <span id="footer-year"></span> Willbridge Legacy Planning. All rights reserved.</p>
       <div class="flex flex-wrap justify-center gap-5">
-        <a href="#" class="hover:text-sand-400">Privacy Policy</a>
-        <a href="#" class="hover:text-sand-400">Terms of Service</a>
-        <a href="#" class="hover:text-sand-400">Client Confidentiality</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Terms of Service</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Client Confidentiality</a>
       </div>
     </div>
   </div>

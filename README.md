@@ -18,7 +18,15 @@ willbridge-estate-template/
 ├── services.html           Filterable / searchable grid of nine services
 ├── service-details.html    ★ The complete guide — see below
 ├── blog.html               Journal index, searchable + category filters
-├── blog-details.html       Full article with sticky sidebar and comments
+├── blog-details.html       Article: Who Can Witness Your Will
+├── blog-probate-timeline.html  Article: Realistic Probate Timeline
+├── blog-family-trust.html  Article: When a Family Trust is Worth It
+├── blog-parent-conversation.html Article: How to Raise the Subject with Parents
+├── blog-nominee-heir.html  Article: A Nominee Is Not an Heir
+├── blog-executor-checklist.html Article: Executor's 30-Day Checklist
+├── blog-special-needs-care.html Article: Providing for a Special Needs Child
+├── blog-digital-estate.html Article: Your Digital Estate & Passwords
+├── blog-contest-proof-will.html Article: Six Things to Make a Will Harder to Contest
 ├── contact.html            Confidential consultation booking form + map
 ├── pricing.html            Packages, comparison table, add-ons, fee FAQ
 ├── login.html              Split-screen client sign-in
@@ -28,7 +36,8 @@ willbridge-estate-template/
 ├── maintenance.html        Scheduled-maintenance holding page
 ├── assets/
 │   ├── css/style.css       ~330 lines of hand-written CSS on top of Tailwind
-│   └── js/main.js          ~430 lines of vanilla JS — no jQuery, no framework
+│   ├── js/main.js          ~430 lines of vanilla JS — no jQuery, no framework
+│   └── images/             High-resolution professional photography
 ├── docs/index.html         Developer documentation (open in a browser)
 └── README.md
 ```

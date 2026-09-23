@@ -4,13 +4,13 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
       <div class="lg:col-span-2">
-        <a href="index.html" class="flex items-center gap-3 mb-4">
-          <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center">
+        <a href="index.html" class="flex items-center gap-3 mb-4" aria-label="Willbridge — home">
+          <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
             <i class="ri-quill-pen-line text-white text-xl"></i>
           </span>
-          <span class="font-serif text-xl font-bold text-white">Will<span class="text-sand-400">bridge</span></span>
+          <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
         </a>
-        <p class="text-sm leading-relaxed text-ink-400 max-w-sm">
+        <p class="text-sm leading-relaxed text-ink-200 max-w-sm">
           Wills, trusts, succession certificates and probate support — handled with patience,
           discretion and plain language, so your family is never left guessing.
         </p>
@@ -47,26 +47,28 @@
 
       <div>
         <h2 class="text-white font-semibold mb-4 text-base">Stay informed</h2>
-        <p class="text-sm text-ink-400 mb-3">Occasional notes on wills, trusts and succession. No spam, ever.</p>
-        <form class="flex gap-2" data-validate data-success="#footer-newsletter-success" novalidate>
-          <label for="footer-newsletter-email" class="sr-only">Email address</label>
-          <input id="footer-newsletter-email" name="email" type="email" required placeholder="Email address" class="min-w-0 flex-1 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-sand-500">
+        <p class="text-sm text-ink-200 mb-3">Occasional notes on wills, trusts and succession. No spam, ever.</p>
+        <form class="flex items-start gap-2" data-validate data-success="#footer-newsletter-success" novalidate>
+          <div class="flex-1 min-w-0">
+            <label for="footer-newsletter-email" class="sr-only">Email address</label>
+            <input id="footer-newsletter-email" name="email" type="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="Email address" class="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-sand-500">
+            <p id="footer-newsletter-email-error" class="hidden mt-1.5 text-xs text-red-400 text-start">Please enter a valid email address.</p>
+          </div>
           <button type="submit" class="px-4 py-2.5 rounded-lg bg-sand-500 hover:bg-sand-600 text-white text-sm font-semibold shrink-0 transition">Join</button>
         </form>
-        <p id="footer-newsletter-email-error" class="hidden mt-1.5 text-xs text-red-400">Please enter a valid email address.</p>
         <p id="footer-newsletter-success" class="hidden mt-2 text-sm text-sand-400"><i class="ri-checkbox-circle-fill"></i> Thank you — you are on the list.</p>
-        <div class="flex items-start gap-2 mt-4 text-sm text-ink-400"><i class="ri-map-pin-2-line text-sand-500 mt-0.5"></i><span>27 Richmond Row, Bengaluru 560025</span></div>
-        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-phone-line text-sand-500"></i><a href="tel:+918045550142" class="hover:text-sand-400">+91 80 4555 0142</a></div>
-        <div class="flex items-center gap-2 mt-2 text-sm text-ink-400"><i class="ri-mail-line text-sand-500"></i><a href="mailto:hello@willbridge.example" class="hover:text-sand-400">hello@willbridge.example</a></div>
+        <div class="flex items-start gap-2 mt-4 text-sm text-ink-200"><i class="ri-map-pin-2-line text-sand-500 mt-0.5"></i><span>27 Richmond Row, Bengaluru 560025</span></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-200"><i class="ri-phone-line text-sand-500"></i><a href="tel:+918045550142" class="hover:text-sand-400">+91 80 4555 0142</a></div>
+        <div class="flex items-center gap-2 mt-2 text-sm text-ink-200"><i class="ri-mail-line text-sand-500"></i><a href="mailto:hello@willbridge.example" class="hover:text-sand-400">hello@willbridge.example</a></div>
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-ink-500">
-      <p>&copy; <span id="footer-year"></span> Willbridge Legacy Planning. All rights reserved.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-ink-300">
+      <p class="text-ink-300">&copy; <span id="footer-year"></span> Willbridge Legacy Planning. All rights reserved.</p>
       <div class="flex flex-wrap justify-center gap-5">
-        <a href="#" class="hover:text-sand-400">Privacy Policy</a>
-        <a href="#" class="hover:text-sand-400">Terms of Service</a>
-        <a href="#" class="hover:text-sand-400">Client Confidentiality</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Terms of Service</a>
+        <a href="#" class="text-ink-300 hover:text-sand-300 transition-colors">Client Confidentiality</a>
       </div>
     </div>
   </div>

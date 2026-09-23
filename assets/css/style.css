@@ -70,7 +70,7 @@ summary:focus-visible {
   box-shadow: 0 8px 30px -16px rgba(22, 22, 21, .3);
 }
 
-.nav-link.nav-active { color: #2d5f56; font-weight: 600; }
+.nav-link.nav-active { color: #dcba8c; font-weight: 600; }
 .dark .nav-link.nav-active { color: #dcba8c; }
 
 /* Dropdown caret rotates while its group is open (JS toggles .open) */
@@ -81,19 +81,21 @@ summary:focus-visible {
    other way once the document is mirrored. */
 [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
 
-/* ---- Direction toggle wordmark icon ------------------------------------- */
-#dir-toggle .dir-rtl { display: none; }
-#dir-toggle .dir-ltr { display: inline-block; }
-[dir="rtl"] #dir-toggle .dir-rtl { display: inline-block; }
-[dir="rtl"] #dir-toggle .dir-ltr { display: none; }
+/* ---- Direction toggle (<- -> arrow icon) -------------------------------- */
+#dir-toggle i {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+#dir-toggle:hover i {
+  transform: scale(1.15);
+}
 
 /* ---- RTL BiDi text & right-alignment fix ---------------------------------
    When [dir="rtl"] is applied, text content in hero sections and across pages
-   must align to the right side. Using unicode-bidi: plaintext ensures trailing
-   punctuation stays on the right side of LTR sentences, while text-align: right
-   guarantees right-aligned flow on all non-centered elements. */
+   aligns to the right side with seamless right-aligned flow. */
 [dir="rtl"] body {
   text-align: right;
+  direction: rtl;
 }
 
 [dir="rtl"] p,
@@ -107,13 +109,23 @@ summary:focus-visible {
 [dir="rtl"] dt,
 [dir="rtl"] dd,
 [dir="rtl"] blockquote,
-[dir="rtl"] summary,
+[dir="rtl"] summary span,
+[dir="rtl"] .faq-item summary span,
 [dir="rtl"] .eyebrow,
 [dir="rtl"] figcaption,
 [dir="rtl"] label,
-[dir="rtl"] address {
-  unicode-bidi: plaintext;
+[dir="rtl"] address,
+[dir="rtl"] td,
+[dir="rtl"] th,
+[dir="rtl"] .prose,
+[dir="rtl"] .prose p,
+[dir="rtl"] .prose li,
+[dir="rtl"] .prose h1,
+[dir="rtl"] .prose h2,
+[dir="rtl"] .prose h3,
+[dir="rtl"] .prose h4 {
   text-align: right;
+  unicode-bidi: plaintext;
 }
 
 /* Maintain explicit center alignment */
@@ -128,6 +140,7 @@ summary:focus-visible {
 [dir="rtl"] .text-center span,
 [dir="rtl"] .text-center div {
   text-align: center !important;
+  unicode-bidi: plaintext;
 }
 
 [dir="rtl"] .text-start {
@@ -138,54 +151,129 @@ summary:focus-visible {
   text-align: left !important;
 }
 
-/* ---- RTL form inputs & placeholders ------------------------------------- */
+/* ---- RTL Sidebars & Asides ---------------------------------------------- */
+[dir="rtl"] aside {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] aside h1,
+[dir="rtl"] aside h2,
+[dir="rtl"] aside h3,
+[dir="rtl"] aside h4,
+[dir="rtl"] aside h5,
+[dir="rtl"] aside h6,
+[dir="rtl"] aside p,
+[dir="rtl"] aside span,
+[dir="rtl"] aside a,
+[dir="rtl"] aside dt,
+[dir="rtl"] aside dd,
+[dir="rtl"] aside li,
+[dir="rtl"] aside label {
+  text-align: right;
+}
+
+[dir="rtl"] aside .jump-link {
+  text-align: right !important;
+}
+
+[dir="rtl"] aside ul,
+[dir="rtl"] aside ol {
+  text-align: right;
+  padding-inline-start: 0;
+  margin-inline-start: 0;
+}
+
+[dir="rtl"] aside dl div,
+[dir="rtl"] aside nav {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] aside .flex {
+  direction: rtl;
+}
+
+[dir="rtl"] #mobile-menu nav a,
+[dir="rtl"] #mobile-menu button {
+  text-align: right;
+}
+
+/* ---- RTL form inputs, selects & placeholders --------------------------- */
 [dir="rtl"] input,
 [dir="rtl"] textarea,
-[dir="rtl"] select,
-[dir="rtl"] input[type="tel"],
-[dir="rtl"] input[type="email"],
-[dir="rtl"] input[type="number"],
-[dir="rtl"] input[type="password"],
-[dir="rtl"] input[type="text"],
-[dir="rtl"] input[type="search"] {
+[dir="rtl"] select {
   text-align: right !important;
+  direction: rtl !important;
+}
+
+/* RTL Select: mirror dropdown icon to left with exact 1rem gap, text on right with exact 1rem gap */
+[dir="rtl"] select,
+[dir="rtl"] select.glass-input {
+  background-position: left 1rem center !important;
+  padding-inline-start: 1rem !important;
+  padding-inline-end: 2.75rem !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* RTL Date input: shift calendar icon to the right side with exact 1rem gap */
+[dir="rtl"] input[type="date"] {
   direction: ltr !important;
+  text-align: left !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 0.75rem 1rem !important;
+}
+
+[dir="rtl"] input[type="date"]::-webkit-datetime-edit {
+  text-align: left !important;
+  direction: ltr !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+[dir="rtl"] input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+  direction: ltr !important;
+}
+
+[dir="rtl"] input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  padding: 4px !important;
+  cursor: pointer;
 }
 
 /* Standard placeholder */
 [dir="rtl"] input::placeholder,
-[dir="rtl"] textarea::placeholder,
-[dir="rtl"] input[type="tel"]::placeholder,
-[dir="rtl"] input[type="email"]::placeholder {
+[dir="rtl"] textarea::placeholder {
   text-align: right !important;
-  direction: ltr !important;
+  direction: rtl !important;
 }
 
 /* WebKit / Blink (Chrome, Safari, Edge, Opera) */
 [dir="rtl"] input::-webkit-input-placeholder,
-[dir="rtl"] textarea::-webkit-input-placeholder,
-[dir="rtl"] input[type="tel"]::-webkit-input-placeholder,
-[dir="rtl"] input[type="email"]::-webkit-input-placeholder {
+[dir="rtl"] textarea::-webkit-input-placeholder {
   text-align: right !important;
-  direction: ltr !important;
+  direction: rtl !important;
 }
 
 /* Mozilla Firefox */
 [dir="rtl"] input::-moz-placeholder,
-[dir="rtl"] textarea::-moz-placeholder,
-[dir="rtl"] input[type="tel"]::-moz-placeholder,
-[dir="rtl"] input[type="email"]::-moz-placeholder {
+[dir="rtl"] textarea::-moz-placeholder {
   text-align: right !important;
-  direction: ltr !important;
+  direction: rtl !important;
 }
 
 /* Microsoft Edge / Internet Explorer */
 [dir="rtl"] input:-ms-input-placeholder,
-[dir="rtl"] textarea:-ms-input-placeholder,
-[dir="rtl"] input[type="tel"]:-ms-input-placeholder,
-[dir="rtl"] input[type="email"]:-ms-input-placeholder {
+[dir="rtl"] textarea:-ms-input-placeholder {
   text-align: right !important;
-  direction: ltr !important;
+  direction: rtl !important;
 }
 
 /* ---- Back to top -------------------------------------------------------- */
@@ -541,7 +629,7 @@ summary:focus-visible {
 }
 
 .glass-input {
-  background: rgba(255, 255, 255, 0.78) !important;
+  background-color: rgba(255, 255, 255, 0.78) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(220, 220, 216, 0.85);
@@ -549,23 +637,97 @@ summary:focus-visible {
   transition: all .25s ease;
 }
 .glass-input:focus {
-  background: rgba(255, 255, 255, 0.96) !important;
+  background-color: rgba(255, 255, 255, 0.96) !important;
   border-color: #c08a4b !important;
   box-shadow: 
     inset 0 1px 1px 0 rgba(255, 255, 255, 1),
     0 0 0 3px rgba(192, 138, 75, 0.20) !important;
 }
 .dark .glass-input {
-  background: rgba(18, 38, 35, 0.68) !important;
+  background-color: rgba(18, 38, 35, 0.68) !important;
   border-color: rgba(255, 255, 255, 0.14) !important;
   box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.30);
 }
 .dark .glass-input:focus {
-  background: rgba(24, 46, 42, 0.92) !important;
+  background-color: rgba(24, 46, 42, 0.92) !important;
   border-color: #dcba8c !important;
   box-shadow: 
     inset 0 1px 1px 0 rgba(220, 186, 140, 0.25),
     0 0 0 3px rgba(220, 186, 140, 0.24) !important;
+}
+
+/* ---- Select dropdown arrow & padding styling --------------------------- */
+select,
+select.glass-input {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  background-size: 1.125rem 1.125rem !important;
+  padding-inline-start: 1rem !important;
+  padding-inline-end: 2.75rem !important;
+  cursor: pointer;
+}
+
+.dark select,
+.dark select.glass-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+select option {
+  background-color: #ffffff;
+  color: #1a202c;
+}
+.dark select option {
+  background-color: #122623;
+  color: #f7fafc;
+}
+
+/* ---- Date input calendar icon & placeholder styling -------------------- */
+input[type="date"] {
+  position: relative;
+  cursor: pointer;
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 0.75rem 1rem !important;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.5;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: .7;
+  padding: 4px !important;
+  border-radius: 6px;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  transition: opacity .2s ease, background-color .2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  background-color: rgba(45, 95, 86, 0.1);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(.85) brightness(1.2);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .glass-table-wrap {
@@ -793,6 +955,12 @@ details.faq-item[open] {
 .field-invalid {
   border-color: #ef4444 !important;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, .15);
+}
+
+[id$="-error"] {
+  text-align: start !important;
+  display: block;
+  width: 100%;
 }
 
 /* ---- Star rating -------------------------------------------------------- */

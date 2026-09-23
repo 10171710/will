@@ -32,19 +32,30 @@
     });
   }
 
-  /* ---------------- RTL / LTR toggle ----------------
+  /* ---------------- RTL / LTR toggle (LTR in normal, RTL in other side) ----------------
      Flips <html dir> and lang so the entire layout mirrors. All spacing in
      the markup uses logical utilities (ms-/me-/ps-/pe-/start-/end-), so
      nothing else has to change. Persisted under 'wb-dir'. */
   var dirBtn = document.getElementById('dir-toggle');
   if (dirBtn) {
+    var updateDirState = function (isRtl) {
+      dirBtn.setAttribute('aria-pressed', isRtl ? 'true' : 'false');
+      dirBtn.setAttribute('title', isRtl ? 'RTL layout (Click for LTR)' : 'LTR layout (Click for RTL)');
+      dirBtn.setAttribute('aria-label', isRtl ? 'RTL layout active. Click to switch to LTR' : 'LTR layout active. Click to switch to RTL');
+    };
+    var isRtlInit = document.documentElement.getAttribute('dir') === 'rtl';
+    updateDirState(isRtlInit);
+
     dirBtn.addEventListener('click', function () {
       var html = document.documentElement;
       var next = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
       html.setAttribute('dir', next);
       html.setAttribute('lang', next === 'rtl' ? 'ar' : 'en');
       localStorage.setItem('wb-dir', next);
-      dirBtn.setAttribute('aria-pressed', next === 'rtl' ? 'true' : 'false');
+      updateDirState(next === 'rtl');
+      if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+      }
     });
   }
 
@@ -177,38 +188,134 @@
     var items = root.querySelectorAll('[data-filter-item]');
     var empty = root.querySelector('[data-filter-empty]');
     var countEl = root.querySelector('[data-filter-count]');
+    var headingEl = root.querySelector('[data-filter-heading]');
     var active = 'all';
+
+    function normalize(cat) {
+      if (!cat) return '';
+      var c = String(cat).trim().toLowerCase().replace(/[\s_]+/g, '-');
+      if (c === 'all' || c === 'all-articles' || c === 'all-services' || c === 'all-questions') return 'all';
+      if (c === 'family-conversations' || c === 'family-conversation' || c === 'family_conversations' || c === 'family') return 'family';
+      if (c === 'wills' || c === 'will' || c === 'wills-testament' || c === 'wills-drafting') return 'wills';
+      if (c === 'trusts' || c === 'trust' || c === 'trusts-settlements' || c === 'trusts-estates' || c === 'trusts-family') return 'trusts';
+      if (c === 'probate' || c === 'probates' || c === 'probate-court') return 'probate';
+      if (c === 'guides' || c === 'guide' || c === 'guides-checklists') return 'guides';
+      if (c === 'digital' || c === 'digital-estate' || c === 'digital-assets') return 'digital';
+      if (c === 'nominee' || c === 'nominees' || c === 'nominee-heirs' || c === 'nominee-vs-heirs') return 'nominee';
+      if (c === 'disputes' || c === 'dispute' || c === 'dispute-prevention' || c === 'contest') return 'disputes';
+      if (c === 'special-needs' || c === 'special-needs-care' || c === 'special-needs-trust') return 'special-needs';
+      if (c === 'planning' || c === 'planning-ahead') return 'planning';
+      if (c === 'after' || c === 'after-a-death') return 'after';
+      if (c === 'business' || c === 'business-property') return 'business';
+      if (c === 'fees' || c === 'fees-privacy') return 'fees';
+      return c;
+    }
 
     function apply() {
       var q = ((search && search.value) || '').trim().toLowerCase();
+      var normActive = normalize(active);
       var visible = 0;
+
       items.forEach(function (item) {
-        var cats = (item.getAttribute('data-category') || '').split(' ');
+        var rawCats = (item.getAttribute('data-category') || '').toLowerCase().split(/[\s,]+/);
+        var cats = rawCats.map(normalize).filter(Boolean);
         var title = (item.getAttribute('data-title') || '').toLowerCase();
-        var matchesCategory = active === 'all' || cats.indexOf(active) !== -1;
-        var matchesSearch = !q || title.indexOf(q) !== -1;
+        var fullText = (item.textContent || '').toLowerCase();
+
+        var matchesCategory = normActive === 'all' || normActive === '' || cats.indexOf(normActive) !== -1;
+        var matchesSearch = !q || title.indexOf(q) !== -1 || fullText.indexOf(q) !== -1;
         var show = matchesCategory && matchesSearch;
+
         item.classList.toggle('hidden', !show);
-        if (show) visible++;
+        if (show) {
+          visible++;
+          item.classList.add('aos-animate');
+        }
       });
+
       if (empty) empty.classList.toggle('hidden', visible !== 0);
       if (countEl) countEl.textContent = String(visible);
+
+      // Dynamic heading update
+      if (headingEl) {
+        var activeBtn = root.querySelector('[data-filter-btn].is-active');
+        if (activeBtn) {
+          var btnText = activeBtn.textContent.trim();
+          if (normActive === 'all') {
+            headingEl.textContent = 'All articles';
+          } else {
+            headingEl.textContent = btnText;
+          }
+        }
+      }
+
+      // Refresh AOS animations so newly shown items animate smoothly
+      if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+      }
+    }
+
+    function setActive(newCat, updateUrl) {
+      var targetNorm = normalize(newCat);
+      var foundBtn = false;
+
+      buttons.forEach(function (b) {
+        var bCat = normalize(b.getAttribute('data-filter-btn'));
+        var isMatch = bCat === targetNorm || (targetNorm === 'all' && bCat === 'all');
+        if (isMatch) {
+          foundBtn = true;
+          active = b.getAttribute('data-filter-btn');
+          b.classList.add('is-active');
+          b.setAttribute('aria-pressed', 'true');
+        } else {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        }
+      });
+
+      if (!foundBtn && targetNorm) {
+        active = newCat;
+      }
+
+      apply();
+
+      if (updateUrl && window.history && window.history.replaceState) {
+        try {
+          var url = new URL(window.location.href);
+          if (active === 'all') {
+            url.searchParams.delete('category');
+            url.searchParams.delete('filter');
+            url.searchParams.delete('cat');
+          } else {
+            url.searchParams.set('category', active);
+          }
+          window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+        } catch (e) {
+          /* ignore */
+        }
+      }
     }
 
     if (search) search.addEventListener('input', apply);
+
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        active = btn.getAttribute('data-filter-btn');
-        buttons.forEach(function (b) {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-pressed', 'true');
-        apply();
+        setActive(btn.getAttribute('data-filter-btn'), true);
       });
     });
-    apply();
+
+    // Check URL query parameters or hash to activate category directly on load
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var urlCat = urlParams.get('category') || urlParams.get('filter') || urlParams.get('cat') || window.location.hash.replace('#', '');
+      if (urlCat) {
+        setActive(urlCat, false);
+      } else {
+        apply();
+      }
+    } catch (e) {
+      apply();
+    }
   });
 
   /* ---------------- FAQ expand-all / collapse-all -------------------------
@@ -358,6 +465,101 @@
     img.addEventListener('load', function () { img.classList.remove('img-lazy'); }, { once: true });
   });
 
+  /* ---------------- Password strength meter & recommendations -------------
+     Evaluates password strength in real-time and updates recommendations & visual bars. */
+  var passwordInputs = document.querySelectorAll('[data-password-strength], #reg-password');
+  passwordInputs.forEach(function (pwdInput) {
+    var labelEl = document.getElementById('password-strength-label');
+    var seg1 = document.getElementById('pwd-seg-1');
+    var seg2 = document.getElementById('pwd-seg-2');
+    var seg3 = document.getElementById('pwd-seg-3');
+    var seg4 = document.getElementById('pwd-seg-4');
+    var segments = [seg1, seg2, seg3, seg4].filter(Boolean);
+
+    var ruleLength = document.getElementById('pwd-rule-length');
+    var ruleCases = document.getElementById('pwd-rule-cases');
+    var ruleNumSym = document.getElementById('pwd-rule-num-sym');
+
+    function updateRule(ruleEl, isPass) {
+      if (!ruleEl) return;
+      var icon = ruleEl.querySelector('i');
+      if (isPass) {
+        if (icon) icon.className = 'ri-checkbox-circle-fill text-emerald-500 text-xs shrink-0';
+        ruleEl.classList.remove('text-ink-400');
+        ruleEl.classList.add('text-emerald-700', 'dark:text-emerald-400', 'font-medium');
+      } else {
+        if (icon) icon.className = 'ri-checkbox-blank-circle-line text-ink-300 dark:text-ink-600 text-xs shrink-0';
+        ruleEl.classList.remove('text-emerald-700', 'dark:text-emerald-400', 'font-medium');
+        ruleEl.classList.add('text-ink-400');
+      }
+    }
+
+    function checkStrength() {
+      var val = pwdInput.value || '';
+      if (!val) {
+        if (labelEl) {
+          labelEl.textContent = '—';
+          labelEl.className = 'font-semibold text-ink-400';
+        }
+        segments.forEach(function (seg) {
+          seg.className = 'h-full rounded-full bg-ink-200 dark:bg-white/10 transition-all duration-300';
+        });
+        updateRule(ruleLength, false);
+        updateRule(ruleCases, false);
+        updateRule(ruleNumSym, false);
+        return;
+      }
+
+      var passLength = val.length >= 8;
+      var passCases = /[a-z]/.test(val) && /[A-Z]/.test(val);
+      var passNumSym = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(val);
+
+      updateRule(ruleLength, passLength);
+      updateRule(ruleCases, passCases);
+      updateRule(ruleNumSym, passNumSym);
+
+      var score = 0;
+      if (val.length >= 6) score++;
+      if (passLength) score++;
+      if (passCases) score++;
+      if (passNumSym) score++;
+
+      var level = 1;
+      if (score === 3) {
+        level = 2;
+      } else if (score >= 4) {
+        if (val.length >= 10 || (/[0-9]/.test(val) && /[^a-zA-Z0-9]/.test(val))) {
+          level = 4;
+        } else {
+          level = 3;
+        }
+      }
+      var colors = {
+        1: { bg: 'bg-red-500', text: 'text-red-500', label: 'Weak' },
+        2: { bg: 'bg-amber-500', text: 'text-amber-500', label: 'Fair' },
+        3: { bg: 'bg-primary-500', text: 'text-primary-600 dark:text-sand-400', label: 'Good' },
+        4: { bg: 'bg-emerald-500', text: 'text-emerald-600 dark:text-emerald-400', label: 'Strong' }
+      };
+
+      var active = colors[level];
+      if (labelEl) {
+        labelEl.textContent = active.label;
+        labelEl.className = 'font-semibold ' + active.text;
+      }
+
+      segments.forEach(function (seg, idx) {
+        if (idx < level) {
+          seg.className = 'h-full rounded-full ' + active.bg + ' transition-all duration-300';
+        } else {
+          seg.className = 'h-full rounded-full bg-ink-200 dark:bg-white/10 transition-all duration-300';
+        }
+      });
+    }
+
+    pwdInput.addEventListener('input', checkStrength);
+    pwdInput.addEventListener('focus', checkStrength);
+  });
+
   /* ---------------- Form validation ----------------
      Markup contract: <form data-validate data-success="#success-el" novalidate>
        - every [required] field needs a real <label for> and a sibling
@@ -371,6 +573,41 @@
     form.querySelectorAll('[required]').forEach(function (field) {
       var errorEl = field.id ? document.getElementById(field.id + '-error') : null;
       var fieldValid = field.checkValidity();
+
+      /* Name field validation: must be at least 2 characters, reject single letters or invalid names */
+      var isNameField = field.name === 'name' || field.name === 'first' || field.name === 'last' ||
+                        field.id === 'c-name' || field.id === 'reg-first' || field.id === 'reg-last' ||
+                        field.id === 'start-name' || field.id === 'comment-name' ||
+                        field.autocomplete === 'name' || field.autocomplete === 'given-name' || field.autocomplete === 'family-name';
+
+      if (fieldValid && isNameField) {
+        var nameVal = (field.value || '').trim();
+        var nameRegex = /^[a-zA-ZÀ-ÿ\u0600-\u06FF\u0750-\u077F\u0900-\u097F\s'.\-]{2,}$/;
+        if (nameVal.length < 2 || !nameRegex.test(nameVal)) {
+          fieldValid = false;
+        }
+      }
+
+      /* Strict lowercase domain email validation (e.g. gmail.com only, rejecting uppercase domain like GMAIL) */
+      if (fieldValid && (field.type === 'email' || field.getAttribute('type') === 'email')) {
+        var emailVal = (field.value || '').trim();
+        var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/;
+        if (!emailRegex.test(emailVal)) {
+          fieldValid = false;
+        }
+      }
+
+      /* Registration password recommendation validation: length >= 8, mixed cases, number or symbol */
+      if (fieldValid && (field.id === 'reg-password' || (field.name === 'password' && field.autocomplete === 'new-password'))) {
+        var pwdVal = field.value || '';
+        var passLength = pwdVal.length >= 8;
+        var passCases = /[a-z]/.test(pwdVal) && /[A-Z]/.test(pwdVal);
+        var passNumSym = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pwdVal);
+        if (!passLength || !passCases || !passNumSym) {
+          fieldValid = false;
+        }
+      }
+
       if (fieldValid && field.hasAttribute('data-match')) {
         var other = document.querySelector(field.getAttribute('data-match'));
         if (other && field.value !== other.value) fieldValid = false;
@@ -404,8 +641,10 @@
 
     /* Clear the invalid state as soon as the visitor fixes a field */
     form.querySelectorAll('[required]').forEach(function (field) {
-      field.addEventListener('input', function () {
-        if (field.classList.contains('field-invalid')) validateForm(form);
+      ['input', 'change', 'blur'].forEach(function (evtName) {
+        field.addEventListener(evtName, function () {
+          if (field.classList.contains('field-invalid')) validateForm(form);
+        });
       });
     });
   });

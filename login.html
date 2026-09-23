@@ -96,8 +96,8 @@
     </div>
 
     <a href="index.html" class="relative z-10 flex items-center gap-3 w-fit" aria-label="Willbridge — home">
-      <span class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shadow-soft"><i class="ri-quill-pen-line text-xl"></i></span>
-      <span class="font-serif text-xl font-bold">Will<span class="text-sand-400">bridge</span></span>
+      <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0"><i class="ri-quill-pen-line text-white text-xl"></i></span>
+      <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
     </a>
 
     <div class="relative z-10 max-w-md">
@@ -136,18 +136,17 @@
         </a>
         <div class="flex items-center gap-1.5">
           <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
-            <span class="dir-ltr text-[11px] font-bold tracking-wider uppercase">RTL</span>
-            <span class="dir-rtl text-[11px] font-bold tracking-wider uppercase">LTR</span>
-          </button>
+          <i class="ri-arrow-left-right-line text-lg"></i>
+        </button>
           <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
             <i class="ri-moon-line text-lg dark:hidden"></i><i class="ri-sun-line text-lg hidden dark:inline"></i>
           </button>
         </div>
       </div>
 
-      <a href="index.html" class="lg:hidden mt-8 flex items-center gap-3 w-fit">
-        <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft"><i class="ri-quill-pen-line text-white text-xl"></i></span>
-        <span class="font-serif text-xl font-bold tracking-tight text-primary-700">Will<span class="text-sand-500">bridge</span></span>
+      <a href="index.html" class="lg:hidden mt-8 flex items-center gap-3 w-fit px-3.5 py-2 rounded-xl bg-primary-900 text-white shadow-soft" aria-label="Willbridge — home">
+        <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0"><i class="ri-quill-pen-line text-white text-xl"></i></span>
+        <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
       </a>
 
       <div class="mt-10 glass-card rounded-3xl p-7 sm:p-9 border border-ink-200/80 dark:border-white/10 shadow-card">
@@ -157,8 +156,8 @@
         <form class="mt-8 space-y-5" data-validate data-success="#login-success" novalidate>
           <div>
             <label for="login-email" class="block text-sm font-medium text-primary-800 dark:text-white mb-1.5">Email address</label>
-            <input id="login-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="glass-input w-full px-4 py-3 rounded-xl text-sm">
-            <p id="login-email-error" class="hidden mt-1.5 text-xs text-red-500">Please enter a valid email address.</p>
+            <input id="login-email" name="email" type="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" autocomplete="email" placeholder="you@example.com" class="glass-input w-full px-4 py-3 rounded-xl text-sm">
+            <p id="login-email-error" class="hidden mt-1.5 text-xs text-red-500 text-start">Please enter a valid email address.</p>
           </div>
 
           <div>
@@ -170,7 +169,7 @@
               <input id="login-password" name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="••••••••" class="glass-input w-full px-4 py-3 pe-12 rounded-xl text-sm">
               <button type="button" data-toggle-password="#login-password" aria-label="Show password" class="absolute end-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg text-ink-400 hover:text-primary-600 flex items-center justify-center"><i class="ri-eye-line"></i></button>
             </div>
-            <p id="login-password-error" class="hidden mt-1.5 text-xs text-red-500">Your password must be at least eight characters.</p>
+            <p id="login-password-error" class="hidden mt-1.5 text-xs text-red-500 text-start">Your password must be at least eight characters.</p>
           </div>
 
           <div class="flex items-center justify-between text-sm">
