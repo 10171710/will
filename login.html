@@ -89,6 +89,7 @@
   <!-- ---------- Brand panel ---------- -->
   <section class="relative hidden lg:flex flex-col justify-between overflow-hidden bg-primary-800 p-12 text-white" aria-label="About Willbridge">
     <div class="hero-ambient-grid" aria-hidden="true"></div>
+    <div class="hero-media hero-media--panel" style="background-image: url('assets/images/hero-quiet-conversation.jpg');" aria-hidden="true"></div>
     <div class="blob-bg" aria-hidden="true">
       <span class="w-[32rem] h-[32rem] bg-primary-300/30 -top-24 -start-24"></span>
       <span class="w-[26rem] h-[26rem] bg-sand-400/25 bottom-0 -end-16"></span>
@@ -134,13 +135,13 @@
         <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-ink-500 dark:text-ink-400 hover:text-primary-600 dark:hover:text-sand-300">
           <i class="ri-arrow-left-line rtl-flip"></i> Back to the website
         </a>
-        <div class="flex items-center gap-1.5">
-          <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
-          <i class="ri-arrow-left-right-line text-lg"></i>
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="header-icon-btn header-icon-btn--light w-9 h-9 sm:w-10 sm:h-10 inline-flex items-center justify-center rounded-xl bg-ink-100 dark:bg-white/10 hover:bg-ink-200 dark:hover:bg-white/20 text-ink-800 dark:text-white border border-ink-300/80 dark:border-white/20 shadow-xs transition duration-200 shrink-0">
+          <i class="ri-arrow-left-right-line text-base sm:text-lg"></i>
         </button>
-          <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-500 dark:text-ink-300 hover:bg-ink-100 dark:hover:bg-white/10 transition">
-            <i class="ri-moon-line text-lg dark:hidden"></i><i class="ri-sun-line text-lg hidden dark:inline"></i>
-          </button>
+        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="header-icon-btn header-icon-btn--light w-9 h-9 sm:w-10 sm:h-10 inline-flex items-center justify-center rounded-xl bg-ink-100 dark:bg-white/10 hover:bg-ink-200 dark:hover:bg-white/20 text-ink-800 dark:text-white border border-ink-300/80 dark:border-white/20 shadow-xs transition duration-200 shrink-0">
+          <i class="ri-moon-line text-base sm:text-lg"></i>
+        </button>
         </div>
       </div>
 

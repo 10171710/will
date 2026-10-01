@@ -86,21 +86,21 @@
 <!-- ============================== HEADER ============================== -->
 <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-primary-900/95 dark:bg-ink-950/95 backdrop-blur-md border-b border-white/10 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-[78px] gap-4">
+    <div class="flex items-center justify-between h-[78px] gap-2 lg:gap-3 xl:gap-4">
 
       <!-- Brand -->
-      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Willbridge — home">
-        <span class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
-          <i class="ri-quill-pen-line text-white text-xl"></i>
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 shrink-0" aria-label="Willbridge — home">
+        <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-primary-600 flex items-center justify-center shadow-soft shrink-0">
+          <i class="ri-quill-pen-line text-white text-lg sm:text-xl"></i>
         </span>
-        <span class="font-serif text-xl font-bold tracking-tight text-white">Will<span class="text-sand-400">bridge</span></span>
+        <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-white whitespace-nowrap">Will<span class="text-sand-400">bridge</span></span>
       </a>
 
       <!-- Desktop navigation -->
-      <nav aria-label="Primary" class="hidden lg:flex items-center gap-1.5 xl:gap-2 font-medium text-sm">
+      <nav aria-label="Primary" class="hidden lg:flex items-center gap-1 xl:gap-2 font-medium text-xs lg:text-[13px] xl:text-sm shrink">
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition" aria-haspopup="true" aria-expanded="false">
-            Home <i class="ri-arrow-down-s-line text-base transition"></i>
+          <button class="nav-link flex items-center gap-1 px-2.5 xl:px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition whitespace-nowrap" aria-haspopup="true" aria-expanded="false">
+            Home <i class="ri-arrow-down-s-line text-sm transition"></i>
           </button>
           <div class="dropdown absolute start-0 top-full mt-1 w-72 rounded-xl bg-primary-900 dark:bg-ink-950 border border-white/10 shadow-2xl p-2 opacity-0 invisible translate-y-2 group-[.open]:opacity-100 group-[.open]:visible group-[.open]:translate-y-0 transition-all">
             <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm hover:bg-white/10 hover:text-white text-ink-200">
@@ -114,29 +114,28 @@
           </div>
         </div>
 
-        <a href="about.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">About</a>
+        <a href="about.html" class="nav-link px-2.5 xl:px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition whitespace-nowrap">About</a>
 
-        <a href="services.html" class="nav-link nav-active px-3.5 py-2 rounded-lg text-sand-300 hover:text-white hover:bg-white/10 transition">Services</a>
+        <a href="services.html" class="nav-link nav-active px-2.5 xl:px-3.5 py-2 rounded-lg text-sand-300 hover:text-white hover:bg-white/10 transition whitespace-nowrap">Services</a>
 
-        <a href="service-details.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Estate Guide</a>
+        <a href="service-details.html" class="nav-link px-2.5 xl:px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition whitespace-nowrap">Estate Guide</a>
 
-        <a href="blog.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Blog</a>
-        <a href="contact.html" class="nav-link px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">Contact</a>
+        <a href="blog.html" class="nav-link px-2.5 xl:px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition whitespace-nowrap">Blog</a>
+        <a href="contact.html" class="nav-link px-2.5 xl:px-3.5 py-2 rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition whitespace-nowrap">Contact</a>
       </nav>
 
       <!-- Utilities -->
-      <div class="flex items-center gap-1.5 sm:gap-2">
-        <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">
-          <i class="ri-arrow-left-right-line text-lg"></i>
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="dir-toggle" title="Toggle RTL / LTR" aria-label="Toggle text direction" aria-pressed="false" class="header-icon-btn w-9 h-9 sm:w-10 sm:h-10 inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/25 text-white border border-white/20 hover:border-white/30 shadow-xs transition duration-200 shrink-0">
+          <i class="ri-arrow-left-right-line text-base sm:text-lg"></i>
         </button>
-        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="w-9 h-9 inline-flex items-center justify-center rounded-lg text-ink-200 hover:text-white hover:bg-white/10 transition">
-          <i class="ri-moon-line text-lg dark:hidden"></i>
-          <i class="ri-sun-line text-lg hidden dark:inline"></i>
+        <button id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle dark or light mode" aria-pressed="false" class="header-icon-btn w-9 h-9 sm:w-10 sm:h-10 inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/25 text-white border border-white/20 hover:border-white/30 shadow-xs transition duration-200 shrink-0">
+          <i class="ri-moon-line text-base sm:text-lg"></i>
         </button>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-sand-500 hover:bg-sand-600 shadow-soft transition">
-          <i class="ri-calendar-check-line"></i><span class="hidden sm:inline">Book Consultation</span>
+        <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-semibold text-white bg-sand-500 hover:bg-sand-600 shadow-soft transition whitespace-nowrap shrink-0">
+          <i class="ri-calendar-check-line"></i><span>Book Consultation</span>
         </a>
-        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-lg text-white hover:bg-white/10">
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-lg text-white hover:bg-white/10 shrink-0">
           <i class="ri-menu-3-line text-2xl"></i>
         </button>
       </div>
@@ -163,7 +162,7 @@
       <a href="contact.html" class="block px-3 py-2.5 rounded-lg text-ink-200 hover:text-white hover:bg-white/10">Contact</a>
 
       <div class="pt-3 border-t border-white/10 mt-2 space-y-2">
-        <a href="contact.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-sand-500 hover:bg-sand-600 text-white font-semibold"><i class="ri-calendar-check-line"></i> Book a Confidential Consultation</a>
+        <a href="contact.html" class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-sand-500 hover:bg-sand-600 text-white font-semibold text-sm transition shadow-soft"><i class="ri-calendar-check-line"></i> Book Consultation</a>
       </div>
     </nav>
   </div>
@@ -172,8 +171,9 @@
 <main id="main" class="pt-[78px]">
 
   <!-- ============================== PAGE HEADER ============================== -->
-  <section class="relative overflow-hidden border-b border-ink-200 dark:border-white/10">
+  <section class="relative overflow-hidden hero-section border-b border-ink-200 dark:border-white/10">
     <div class="hero-ambient-grid" aria-hidden="true"></div>
+    <div class="hero-media" style="background-image: url('assets/images/service-will-drafting.jpg');" aria-hidden="true"></div>
     <div class="blob-bg" aria-hidden="true">
       <span class="w-[32rem] h-[32rem] bg-primary-400 -top-40 -start-24 blob-1"></span>
       <span class="w-[26rem] h-[26rem] bg-sand-300 -bottom-24 end-0 blob-2"></span>
@@ -182,11 +182,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-center relative z-10">
       <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
         <span class="glass-badge justify-center"><i class="ri-briefcase-4-line text-sand-500"></i> What we do</span>
-        <h1 class="mt-4 font-serif text-4xl sm:text-5xl font-bold leading-[1.14] text-primary-900 dark:text-white">
+        <h1 class="mt-4 font-serif text-4xl sm:text-5xl font-bold leading-[1.14] text-primary-950 dark:text-white">
           Estate services, explained without jargon
         </h1>
         <hr class="rule-sand mt-6 mx-auto">
-        <p class="mt-6 text-lg leading-relaxed text-ink-500 dark:text-ink-400">
+        <p class="mt-6 text-lg leading-relaxed text-ink-900 dark:text-ink-100 font-medium">
           Nine services, one practice. Some are things you do now, while everything is calm; others
           are things your family may need after a death. Every one of them carries a fixed fee
           agreed in writing before any work begins.

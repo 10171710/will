@@ -81,13 +81,54 @@ summary:focus-visible {
    other way once the document is mirrored. */
 [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
 
-/* ---- Direction toggle (<- -> arrow icon) -------------------------------- */
-#dir-toggle i {
+/* ---- Header utility buttons (Theme & RTL) -------------------------------
+   Consistent button sizing, smooth hover state and clean icon transitions
+   matching the original icon symbol design across all screen sizes. */
+.header-icon-btn,
+#theme-toggle,
+#dir-toggle {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  color: #dcdcd8;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header-icon-btn:hover,
+#theme-toggle:hover,
+#dir-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#dir-toggle i,
+#theme-toggle i {
+  font-size: 1.125rem;
   display: inline-block;
   transition: transform 0.25s ease;
 }
-#dir-toggle:hover i {
-  transform: scale(1.15);
+
+#dir-toggle:hover i,
+#theme-toggle:hover i {
+  transform: scale(1.12);
+}
+
+.dark .header-icon-btn,
+.dark #theme-toggle,
+.dark #dir-toggle {
+  color: #bcbcb6;
+}
+
+.dark .header-icon-btn:hover,
+.dark #theme-toggle:hover,
+.dark #dir-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 /* ---- RTL BiDi text & right-alignment fix ---------------------------------
@@ -276,6 +317,79 @@ summary:focus-visible {
   direction: rtl !important;
 }
 
+/* ---- Header utility buttons (Theme & RTL) -------------------------------
+   Ensures consistent, visible, elegant framed button styling across all pages */
+.header-icon-btn,
+#theme-toggle,
+#dir-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.header-icon-btn:hover,
+#theme-toggle:hover,
+#dir-toggle:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+}
+.header-icon-btn:active,
+#theme-toggle:active,
+#dir-toggle:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Light header override for utility pages (e.g. login / register) */
+.header-icon-btn--light,
+.bg-white #theme-toggle,
+.bg-white #dir-toggle,
+.bg-paper #theme-toggle,
+.bg-paper #dir-toggle {
+  background: #eeeeec;
+  border: 1px solid rgba(220, 220, 216, 0.9);
+  color: #2a2a28;
+}
+.header-icon-btn--light:hover,
+.bg-white #theme-toggle:hover,
+.bg-white #dir-toggle:hover,
+.bg-paper #theme-toggle:hover,
+.bg-paper #dir-toggle:hover {
+  background: #dcdcd8;
+  border-color: #bcbcb6;
+  color: #161615;
+}
+.dark .header-icon-btn--light,
+.dark .bg-white #theme-toggle,
+.dark .bg-white #dir-toggle,
+.dark .bg-paper #theme-toggle,
+.dark .bg-paper #dir-toggle {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+.dark .header-icon-btn--light:hover,
+.dark .bg-white #theme-toggle:hover,
+.dark .bg-white #dir-toggle:hover,
+.dark .bg-paper #theme-toggle:hover,
+.dark .bg-paper #dir-toggle:hover {
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.30);
+  color: #ffffff;
+}
+
 /* ---- Back to top -------------------------------------------------------- */
 #back-to-top.show {
   opacity: 1;
@@ -296,8 +410,8 @@ summary:focus-visible {
 .blob-bg span {
   position: absolute;
   border-radius: 999px;
-  filter: blur(110px);
-  opacity: .18;
+  filter: blur(120px);
+  opacity: .07;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   animation-duration: 22s;
@@ -305,7 +419,7 @@ summary:focus-visible {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-.dark .blob-bg span { opacity: .15; }
+.dark .blob-bg span { opacity: .06; }
 
 .blob-bg .blob-1,
 .blob-bg span:first-child {
@@ -367,6 +481,120 @@ summary:focus-visible {
   mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, transparent 80%);
 }
+
+/* ---- Hero: shared structure + height ------------------------------------
+   Every page hero uses the same vertical rhythm so the site feels like one
+   document. `.hero-section` owns the height; `.hero-media` owns the
+   per-page background photograph (set via inline background-image in the markup).
+   Utility pages (404, coming soon, maintenance) opt into the shorter
+   `.hero-section--compact` variant. */
+.hero-section {
+  display: flex;
+  align-items: center;
+  min-height: 30rem;
+}
+@media (min-width: 640px) {
+  .hero-section { min-height: 34rem; }
+}
+@media (min-width: 1024px) {
+  .hero-section { min-height: 37rem; }
+}
+/* The home page carries the largest artwork, so it gets a little more room. */
+.hero-section--tall {
+  min-height: 34rem;
+}
+@media (min-width: 640px) {
+  .hero-section--tall { min-height: 40rem; }
+}
+@media (min-width: 1024px) {
+  .hero-section--tall { min-height: 44rem; }
+}
+.hero-section--compact { min-height: 26rem; }
+@media (min-width: 640px) {
+  .hero-section--compact { min-height: 30rem; }
+}
+@media (min-width: 1024px) {
+  .hero-section--compact { min-height: 34rem; }
+}
+
+.hero-section > *:not([aria-hidden]) { width: 100%; }
+
+/* Photographic backdrop. Elegant, soft, atmospheric across all hero banners. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0.28;
+  filter: saturate(0.95) contrast(1.02);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, rgba(0, 0, 0, 0.45) 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, rgba(0, 0, 0, 0.45) 92%, transparent 100%);
+  transition: opacity 0.3s ease;
+}
+.dark .hero-media {
+  opacity: 0.22;
+  filter: saturate(0.85) brightness(0.80) contrast(1.05);
+}
+
+/* Extra light, soft watermark treatment for content-dense hero sections 
+   (Home 1, Home 2, About, Estate Guide) so background photos provide dignified 
+   texture without competing with foreground cards, forms, or headlines. */
+.hero-media--subtle,
+.hero-media--light {
+  opacity: 0.16;
+  filter: saturate(0.85) contrast(0.98);
+  mask-image: radial-gradient(ellipse at 50% 35%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 35%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 65%, transparent 100%);
+}
+.dark .hero-media--subtle,
+.dark .hero-media--light {
+  opacity: 0.12;
+  filter: saturate(0.80) brightness(0.75);
+}
+
+/* Hero section high contrast text typography */
+.hero-section h1 {
+  color: #0d1c1a;
+  letter-spacing: -0.015em;
+}
+.dark .hero-section h1 {
+  color: #ffffff;
+}
+.hero-section p {
+  color: #161615;
+  font-weight: 450;
+}
+.dark .hero-section p {
+  color: #f1f5f9;
+}
+.hero-section ul {
+  color: #2a2a28;
+}
+.dark .hero-section ul {
+  color: #dcdcd8;
+}
+.hero-section .eyebrow,
+.hero-section .glass-badge {
+  color: #855935;
+  font-weight: 700;
+}
+.dark .hero-section .eyebrow,
+.dark .hero-section .glass-badge {
+  color: #dcba8c;
+}
+
+/* Brand panels (login / register) sit on a solid fill, so the photograph is
+   clearly visible and clipped to a diagonal fade. */
+.hero-media--panel {
+  opacity: 0.45;
+  filter: saturate(1.00) brightness(0.95);
+  mask-image: linear-gradient(200deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 65%, transparent 95%);
+  -webkit-mask-image: linear-gradient(200deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 65%, transparent 95%);
+}
+.dark .hero-media--panel { opacity: 0.35; }
 
 /* ---- Section eyebrow ---------------------------------------------------- */
 .eyebrow {
