@@ -487,19 +487,25 @@ summary:focus-visible {
    document. `.hero-section` owns the height; `.hero-media` owns the
    per-page background photograph (set via inline background-image in the markup).
    Utility pages (404, coming soon, maintenance) opt into the shorter
-   `.hero-section--compact` variant. */
+/* ---- Hero Banners (Standardized Sizing & Generous Breathing Room) --------
+   Hero sections are generously proportioned to match Home 1's signature depth
+   and stature across all landing, service, about, pricing and blog pages. */
 .hero-section {
   display: flex;
   align-items: center;
-  min-height: 30rem;
+  min-height: 32rem;
+  position: relative;
 }
 @media (min-width: 640px) {
-  .hero-section { min-height: 34rem; }
+  .hero-section { min-height: 36rem; }
 }
 @media (min-width: 1024px) {
-  .hero-section { min-height: 37rem; }
+  .hero-section { min-height: 40rem; }
 }
-/* The home page carries the largest artwork, so it gets a little more room. */
+@media (min-width: 1280px) {
+  .hero-section { min-height: 42rem; }
+}
+
 .hero-section--tall {
   min-height: 34rem;
 }
@@ -509,17 +515,22 @@ summary:focus-visible {
 @media (min-width: 1024px) {
   .hero-section--tall { min-height: 44rem; }
 }
-.hero-section--compact { min-height: 26rem; }
+@media (min-width: 1280px) {
+  .hero-section--tall { min-height: 46rem; }
+}
+
+.hero-section--compact { min-height: 28rem; }
 @media (min-width: 640px) {
-  .hero-section--compact { min-height: 30rem; }
+  .hero-section--compact { min-height: 32rem; }
 }
 @media (min-width: 1024px) {
-  .hero-section--compact { min-height: 34rem; }
+  .hero-section--compact { min-height: 36rem; }
 }
 
 .hero-section > *:not([aria-hidden]) { width: 100%; }
 
-/* Photographic backdrop. Elegant, soft, atmospheric across all hero banners. */
+/* Photographic backdrop. Rich, crisp, visible in both light & dark themes,
+   with high-fidelity gradient scrims that ensure flawless AAA text readability. */
 .hero-media {
   position: absolute;
   inset: 0;
@@ -528,47 +539,56 @@ summary:focus-visible {
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
-  opacity: 0.28;
-  filter: saturate(0.95) contrast(1.02);
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, rgba(0, 0, 0, 0.45) 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, rgba(0, 0, 0, 0.45) 92%, transparent 100%);
-  transition: opacity 0.3s ease;
-}
-.dark .hero-media {
-  opacity: 0.22;
-  filter: saturate(0.85) brightness(0.80) contrast(1.05);
+  opacity: 0.38;
+  filter: saturate(1.05) contrast(1.04);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 65%, rgba(0, 0, 0, 0.50) 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 65%, rgba(0, 0, 0, 0.50) 88%, transparent 100%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-/* Extra light, soft watermark treatment for content-dense hero sections 
-   (Home 1, Home 2, About, Estate Guide) so background photos provide dignified 
-   texture without competing with foreground cards, forms, or headlines. */
+.dark .hero-media {
+  opacity: 0.32;
+  filter: saturate(1.05) brightness(1.08) contrast(1.10);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
+}
+
+/* Subtle variant for content-dense hero sections (Home 1, Home 2, About, Estate Guide) */
 .hero-media--subtle,
 .hero-media--light {
-  opacity: 0.16;
-  filter: saturate(0.85) contrast(0.98);
-  mask-image: radial-gradient(ellipse at 50% 35%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 65%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 35%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 65%, transparent 100%);
-}
-.dark .hero-media--subtle,
-.dark .hero-media--light {
-  opacity: 0.12;
-  filter: saturate(0.80) brightness(0.75);
+  opacity: 0.32;
+  filter: saturate(1.02) contrast(1.03);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.40) 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.40) 88%, transparent 100%);
 }
 
-/* Hero section high contrast text typography */
+.dark .hero-media--subtle,
+.dark .hero-media--light {
+  opacity: 0.28;
+  filter: saturate(1.02) brightness(1.06) contrast(1.08);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.88) 65%, rgba(0, 0, 0, 0.45) 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.88) 65%, rgba(0, 0, 0, 0.45) 90%, transparent 100%);
+}
+
+/* Hero section high contrast text typography with soft readability protection */
 .hero-section h1 {
   color: #0d1c1a;
   letter-spacing: -0.015em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 .dark .hero-section h1 {
   color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
 }
 .hero-section p {
   color: #161615;
-  font-weight: 450;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 .dark .hero-section p {
   color: #f1f5f9;
+  font-weight: 450;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
 }
 .hero-section ul {
   color: #2a2a28;
@@ -589,12 +609,12 @@ summary:focus-visible {
 /* Brand panels (login / register) sit on a solid fill, so the photograph is
    clearly visible and clipped to a diagonal fade. */
 .hero-media--panel {
-  opacity: 0.45;
-  filter: saturate(1.00) brightness(0.95);
+  opacity: 0.50;
+  filter: saturate(1.05) brightness(1.00);
   mask-image: linear-gradient(200deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 65%, transparent 95%);
   -webkit-mask-image: linear-gradient(200deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 65%, transparent 95%);
 }
-.dark .hero-media--panel { opacity: 0.35; }
+.dark .hero-media--panel { opacity: 0.40; }
 
 /* ---- Section eyebrow ---------------------------------------------------- */
 .eyebrow {

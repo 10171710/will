@@ -307,11 +307,34 @@
     // Check URL query parameters or hash to activate category directly on load
     try {
       var urlParams = new URLSearchParams(window.location.search);
-      var urlCat = urlParams.get('category') || urlParams.get('filter') || urlParams.get('cat') || window.location.hash.replace('#', '');
+      var urlCat = urlParams.get('category') || urlParams.get('filter') || urlParams.get('cat');
+      var hashVal = window.location.hash ? window.location.hash.replace('#', '') : '';
+
+      // If no explicit query param, only treat hash as filter category if it matches a filter button
+      if (!urlCat && hashVal) {
+        var hashNorm = normalize(hashVal);
+        buttons.forEach(function (b) {
+          if (normalize(b.getAttribute('data-filter-btn')) === hashNorm) {
+            urlCat = hashVal;
+          }
+        });
+      }
+
       if (urlCat) {
         setActive(urlCat, false);
       } else {
         apply();
+      }
+
+      // If hash points to an element ID, ensure it is not hidden and scroll into view
+      if (hashVal) {
+        var targetEl = document.getElementById(hashVal);
+        if (targetEl) {
+          targetEl.classList.remove('hidden');
+          setTimeout(function () {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 150);
+        }
       }
     } catch (e) {
       apply();
